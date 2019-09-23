@@ -1,41 +1,73 @@
-# SQL Homework - Employee Database: A Mystery in Two Parts
-<!-- 
-![sql.png](sql.png) -->
 
-## Background
+# Employee Data: Modeling, Engineering, Analysis, Visualization and Findings
 
-It is a beautiful spring day, and it is two weeks since you have been hired as a new data engineer at Pewlett Hackard. Your first major task is a research project on employees of the corporation from the 1980s and 1990s. All that remain of the database of employees from that period are six CSV files.
-
-In this assignment, you will design the tables to hold data in the CSVs, import the CSVs into a SQL database, and answer questions about the data. In other words, you will perform:
-
-1. Data Modeling
-
-2. Data Engineering
-
-3. Data Analysis
-
-### Before You Begin
-
-1. Create a new repository for this project called `sql-challenge`. **Do not add this homework to an existing repository**.
-
-2. Clone the new repository to your computer.
-
-3. Inside your local git repository, create a directory for the SQL challenge. Use a folder name to correspond to the challenge: **EmployeeSQL**.
-
-4. Add your files to this folder.
-
-5. Push the above changes to GitHub.
-
-## Instructions
+* Please add your own configuration to the  attacked json file prior to running the  .ipynb for the visualization and analysis breakdown.  
 
 #### Data Modeling
+I modeled my Database using Quick DBD: 
+```
+employees
+-
+emp_no PK INT
+birth_date DATE 
+first_name VARCHAR(255)
+last_name  VARCHAR(255)
+gender VARCHAR(255)
+hire_date DATE
 
-Inspect the CSVs and sketch out an ERD of the tables. Feel free to use a tool like [http://www.quickdatabasediagrams.com](http://www.quickdatabasediagrams.com).
+
+departments
+-
+dept_no PK VARCHAR(255)
+dept_name VARCHAR(255)
+
+
+dept_emp
+-
+dept_no VARCHAR(255) FK >- departments.dept_no
+emp_no INT FK >- employees.emp_no 
+from_date DATE
+to_date DATE
+
+
+dept_manager
+-
+dept_no VARCHAR(255) FK >- departments.dept_no 
+emp_no INT  FK >- employees.emp_no UNIQUE
+from_date DATE
+to_date DATE
+
+
+
+salaries
+-
+salary INT
+emp_no INT FK >- employees.emp_no 
+from_date DATE
+to_date DATE 
+
+titles
+-
+title VARCHAR(255)
+emp_no INT  FK >- employees.emp_no 
+from_date DATE
+to_date DATE
+```
+Here is the diagram:  
+![Employee Database](employee_db.png)
 
 #### Data Engineering
-
-* Use the information you have to create a table schema for each of the six CSV files. Remember to specify data types, primary keys, foreign keys, and other constraints.
-
-* Import each CSV file into the corresponding SQL table.
+You may find the sql schema here: 
+![Schema: exported from QuickDBD ](schema.sql)
 
 #### Data Analysis
+You may find the analysis queries here:  
+![Analysis: Queries](queries.sql)
+
+## Visualization and Findings 
+This is the ipynb file showing analysis and visualization of the data after loading it from PostgreSQL with SQLAlchemy  and json config:  
+![Bar Graphs after Importing from PostgreSQL](sql_challenge.ipynb)
+![Graph 1](salaries.png)
+![Graph 2](salary_clarification.png)
+
+ 
