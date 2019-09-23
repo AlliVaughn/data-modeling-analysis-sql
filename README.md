@@ -65,8 +65,12 @@ You may find the analysis queries here:
 [Analysis: Queries](https://github.com/AlliVaughn/sql-challenge/blob/master/**EMPLOYEESQL**/queries.sql)
 
 ## Visualization and Findings 
-This is the ipynb file showing analysis and visualization of the data after loading it from PostgreSQL with SQLAlchemy  and json config:  
-[Bar Graphs after Importing from PostgreSQL](https://github.com/AlliVaughn/sql-challenge/blob/master/**EMPLOYEESQL**/sql_challenge.ipynb)
+This is the ipynb file showing analysis and visualization of the data after loading it from PostgreSQL with SQLAlchemy and json config:  
+
+* [Bar Graph Analysis after Importing from PostgreSQL](https://github.com/AlliVaughn/sql-challenge/blob/master/**EMPLOYEESQL**/sql_challenge.ipynb)
+
+* Visualizations: 
+
 ![Graph 1](https://github.com/AlliVaughn/sql-challenge/blob/master/**EMPLOYEESQL**/salaries.png)
 ![Graph 2](https://github.com/AlliVaughn/sql-challenge/blob/master/**EMPLOYEESQL**/salary_clarification.png)
 
